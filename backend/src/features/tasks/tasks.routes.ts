@@ -15,8 +15,8 @@ router.get('/', TaskController.getAll);
 // POST /api/tasks - создать новую задачу
 router.post('/', validateDto(CreateTaskDto), TaskController.create);
 
-// PUT /api/tasks/:id - обновить задачу
-router.put('/:id', validateParams(TaskParamsDto), validateDto(UpdateTaskDto), TaskController.update);
+// PATCH /api/tasks/:id - обновить задачу
+router.patch('/:id', validateParams(TaskParamsDto), validateDto(UpdateTaskDto), TaskController.update);
 
 // DELETE /api/tasks/:id - удалить задачу
 router.delete('/:id', validateParams(TaskParamsDto), TaskController.delete);

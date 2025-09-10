@@ -10,7 +10,7 @@
     "module": "commonjs",
     "target": "ES2021",
     "moduleResolution": "node",
-    "types": [],
+    "types": ["jest"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

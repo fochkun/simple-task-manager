@@ -27,7 +27,7 @@ app.use((req, res) => {
     availableRoutes: [
       'GET /api/tasks',
       'POST /api/tasks',
-      'PUT /api/tasks/:id',
+      'PATCH /api/tasks/:id',
       'DELETE /api/tasks/:id',
       'GET /api-docs'
     ]

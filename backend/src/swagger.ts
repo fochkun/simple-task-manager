@@ -80,7 +80,7 @@ export default {
       }
     },
     "/api/tasks/{id}": {
-      put: {
+      PATCH: {
         summary: "Обновить задачу",
         description: "Обновляет статус задачи",
         parameters: [
