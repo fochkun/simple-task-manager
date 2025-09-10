@@ -1,30 +1,14 @@
-// src/entities/Task.ts
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
-
-export enum TaskStatus {
-  TODO = 'TODO',
-  IN_PROGRESS = 'IN_PROGRESS',
-  DONE = 'DONE',
-}
+import { Entity, PrimaryColumn, Column } from 'typeorm';
+import { v4 as uuidv4 } from 'uuid';
 
 @Entity()
 export class Task {
-  @PrimaryGeneratedColumn('uuid')
-  id!: string;
+  @PrimaryColumn('uuid')
+  id: string = uuidv4(); // генерируем при создании
 
   @Column({ type: 'varchar', length: 255 })
   title!: string;
 
-  @Column({ type: 'text', nullable: true })
-  description?: string;
-
-  @Column({
-    type: 'enum',
-    enum: TaskStatus,
-    default: TaskStatus.TODO,
-  })
-  status!: TaskStatus;
-
-  @CreateDateColumn({ type: 'timestamp' })
-  createdAt!: Date;
+  @Column({ type: 'boolean', default: false })
+  completed!: boolean;
 }

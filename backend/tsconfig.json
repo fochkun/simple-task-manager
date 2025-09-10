@@ -46,5 +46,8 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   },
-  "include": ["src/**/*", "ormconfig.ts", "src/types/env.d.ts"]
+  "include": ["src/**/*", 
+  "src/db/ormconfig.ts",
+  "src/db/migrations/**/*.ts",
+  "src/types/env.d.ts"]
 }
