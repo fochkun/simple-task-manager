@@ -9,7 +9,9 @@ export class TaskService {
   }
 
   async create(title: string) {
+    console.log('start create task');
     const task = this.taskRepository.create({ title, completed: false });
+    console.log('start save task');
     return this.taskRepository.save(task);
   }
 

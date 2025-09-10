@@ -6,6 +6,6 @@ export class CreateTaskDto {
   @IsString({ message: 'Title must be a string' })
   @IsNotEmpty({ message: 'Title is required' })
   @MaxLength(100, { message: 'Title must be less than 100 characters' })
-  @Transform(({ value }) => value?.trim())
+  @Transform(({ value }) => typeof value === 'string' ? value.trim() : value)
   title!: string;
 }

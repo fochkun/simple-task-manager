@@ -14,7 +14,7 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME || 'tasktracker',
     synchronize: false,
     logging: true,
-    entities: [join(__dirname, '..', 'entities', '**', '*.ts')],
-    migrations: [join(__dirname, 'migrations', '**', '*.ts')],
+    entities: [join(__dirname, 'entities', '**', '*.{ts,js}')],
+    migrations: [join(__dirname, 'migrations', '**', '*.{ts,js}')],
     subscribers: [],
 });

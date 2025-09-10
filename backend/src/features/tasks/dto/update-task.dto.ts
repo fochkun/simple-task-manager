@@ -6,7 +6,18 @@ export class UpdateTaskDto {
   @IsBoolean({ message: 'Completed must be a boolean' })
   @Transform(({ value }) => {
     if (typeof value === 'string') {
-      return value.toLowerCase() === 'true';
+      const lowerValue = value.toLowerCase();
+      if (lowerValue === 'true' || lowerValue === '1' || lowerValue === 'yes') {
+        return true;
+      }
+      if (lowerValue === 'false' || lowerValue === '0' || lowerValue === 'no') {
+        return false;
+      }
+      // Для других строк возвращаем false
+      return false;
+    }
+    if (typeof value === 'number') {
+      return value === 1;
     }
     return Boolean(value);
   })
