@@ -1,6 +1,11 @@
 // src/features/tasks/tasks.routes.ts
 import { Router } from 'express';
 import { TaskController } from './tasks.controller';
+import { validateDto } from '../../middleware/validation.middleware';
+import { validateParams } from '../../middleware/param-validation.middleware';
+import { CreateTaskDto } from './dto/create-task.dto';
+import { UpdateTaskDto } from './dto/update-task.dto';
+import { TaskParamsDto } from './dto/task-params.dto';
 
 const router = Router();
 
@@ -8,12 +13,12 @@ const router = Router();
 router.get('/', TaskController.getAll);
 
 // POST /api/tasks - создать новую задачу
-router.post('/', TaskController.create);
+router.post('/', validateDto(CreateTaskDto), TaskController.create);
 
 // PUT /api/tasks/:id - обновить задачу
-router.put('/:id', TaskController.update);
+router.put('/:id', validateParams(TaskParamsDto), validateDto(UpdateTaskDto), TaskController.update);
 
 // DELETE /api/tasks/:id - удалить задачу
-router.delete('/:id', TaskController.delete);
+router.delete('/:id', validateParams(TaskParamsDto), TaskController.delete);
 
 export default router;
