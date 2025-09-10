@@ -12,6 +12,6 @@ module.exports = {
     '!src/**/__tests__/**',
     '!src/**/node_modules/**',
   ],
-  setupFilesAfterEnv: ['<rootDir>/src/__tests__/setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/src/__test-utils__/setup.ts'],
   testTimeout: 10000,
 };

@@ -9,7 +9,7 @@ export const TestDataSource = new DataSource({
   port: +(process.env.DB_PORT || "5432"),
   username: process.env.DB_USER || 'admin',
   password: process.env.DB_PASSWORD || 'secret',
-  database: process.env.DB_NAME || 'tasktracker_test',
+  database: process.env.DB_NAME || 'tasktracker',
   synchronize: true, // Для тестов используем synchronize
   logging: false, // Отключаем логирование в тестах
   entities: [join(__dirname, '..','db', 'entities', '**', '*.{ts,js}')],

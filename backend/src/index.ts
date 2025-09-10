@@ -50,6 +50,12 @@ AppDataSource.initialize()
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });
+    process.on('SIGINT', async () => {
+      console.log('Shutting down gracefully...');
+      await AppDataSource.destroy();
+      console.log('Database connection closed');
+      process.exit(0);
+    });
   })
   .catch((error) => {
     console.error('Database connection failed:', error);

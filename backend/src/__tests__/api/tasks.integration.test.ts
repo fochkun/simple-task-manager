@@ -190,7 +190,7 @@ describe('Tasks API Integration Tests', () => {
     });
 
     it('should return 404 for non-existent task', async () => {
-      const fakeId = '123e4567-e89b-12d3-a456-426614174000';
+      const fakeId = '3fa85f64-5717-4562-b0fc-2c963f66afa6';
 
       const response = await request(app)
         .patch(`/api/tasks/${fakeId}`)
@@ -241,11 +241,13 @@ describe('Tasks API Integration Tests', () => {
     });
 
     it('should return 404 for non-existent task', async () => {
-      const fakeId = '123e4567-e89b-12d3-a456-426614174000';
+      const fakeId = '3fa85f64-5717-4562-b0fc-2c963f66afa6';
 
       const response = await request(app)
         .delete(`/api/tasks/${fakeId}`)
         .expect(404);
+
+        console.log('response message:',response.body.message)
 
       expect(response.body.message).toBe('Task not found');
     });
