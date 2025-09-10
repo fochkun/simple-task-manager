@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js -d src/db/ormconfig.ts",
+    "migration:generate": "npm run build && npm run typeorm -- migration:generate",
+    "migration:run": "npm run build && npm run typeorm -- migration:run",
+    "migration:revert": "npm run build && npm run typeorm -- migration:revert"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +21,13 @@
     "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.26"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }
