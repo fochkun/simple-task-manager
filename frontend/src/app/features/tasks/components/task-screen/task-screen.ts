@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { TuiButton } from '@taiga-ui/core';
 
 @Component({
   selector: 'app-task-screen',
-  imports: [TuiButton],
+  imports: [TuiButton, RouterLink, RouterOutlet],
   standalone: true,
   templateUrl: './task-screen.html',
   styleUrl: './task-screen.less'

@@ -1,0 +1,30 @@
+<div class="modal-overlay" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Редактировать задачу</h2>
+      <!-- <button tuiButton iconStart="@tui.x" (click)="onClose()" appearance="flat"></button> -->
+    </div>
+    <div class="modal-body">
+      <tui-input
+        [(ngModel)]="taskTitle"
+        placeholder="Введите название задачи"
+        [required]="true">
+        Название задачи
+      </tui-input>
+      <!-- <tui-select
+        [(ngModel)]="taskStatus"
+        [valueContent]="taskStatus | titlecase"
+        placeholder="Выберите статус">
+        <tui-data-list>
+          <button tuiOption *ngFor="let status of statuses" [value]="status">
+            {{ status | titlecase }}
+          </button>
+        </tui-data-list>
+      </tui-select> -->
+    </div>
+    <div class="modal-footer">
+      <button tuiButton appearance="secondary" (click)="onClose()">Отмена</button>
+      <button tuiButton appearance="primary" (click)="onSubmit()" [disabled]="isSaving">Сохранить</button>
+    </div>
+  </div>
+</div>

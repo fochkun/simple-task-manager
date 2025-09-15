@@ -1,0 +1,21 @@
+<div class="modal-overlay" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Добавить новую задачу</h2>
+    </div>
+    <div class="modal-body">
+      <tui-textfield>
+        <!-- <label tuiLabel>Invalid</label> -->
+        <input placeholder="Введите название задачи" tuiTextfield [(ngModel)]="taskTitle" />
+        <!-- <tui-icon tuiTooltip="Can also follow Angular validation" /> -->
+      </tui-textfield>
+      <tui-input [(ngModel)]="taskTitle" placeholder="Введите название задачи" [required]="true">
+        Название задачи
+      </tui-input>
+    </div>
+    <div class="modal-footer">
+      <button tuiButton appearance="secondary" (click)="onClose()">Отмена</button>
+      <button tuiButton appearance="primary" (click)="onSubmit()" [disabled]="!taskTitle.trim()">Создать</button>
+    </div>
+  </div>
+</div>
